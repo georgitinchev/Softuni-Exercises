@@ -12,7 +12,8 @@ function solve(input) {
       encrypted.splice(par1, 0, par2);
     } else if (command == "ChangeAll") {
       encrypted = encrypted.join("");
-      encrypted = encrypted.replaceAll(par1, par2);
+      let regX = new RegExp(par1, "g");
+      encrypted = encrypted.replace(regX, par2);
       encrypted = encrypted.split("");
     }
     currLine = input.shift();
@@ -21,3 +22,4 @@ function solve(input) {
 }
 // solve(["owyouh", "Move|2", "Move|3", "Insert|3|are", "Insert|9|?", "Decode"]);
 solve(["owyouh", "Move|2", "Move|3", "Insert|3|are", "Insert|9|?", "Decode"]);
+solve(["zzHe", "ChangeAll|z|l", "Insert|2|o", "Move|3", "Decode"]);
