@@ -36,3 +36,20 @@ function solve(input) {
   }
   console.log(`You have a new text message: ${message}`);
 }
+
+solve([
+  "Hiware?uiy",
+  "ChangeAll:|:i:|:o",
+  "Reverse:|:?uoy",
+  "Reverse:|:jd",
+  "InsertSpace:|:3",
+  "InsertSpace:|:7",
+  "Reveal",
+]);
+solve([
+  "heVVodar!gniV",
+  "ChangeAll:|:V:|:l",
+  "Reverse:|:!gnil",
+  "InsertSpace:|:5",
+  "Reveal",
+]);
