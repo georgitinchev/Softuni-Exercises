@@ -18,12 +18,10 @@ function solve(input) {
       let composer = tokens.shift();
       let key = tokens.shift();
       if (obj.hasOwnProperty(piece)) {
-        console.log(`${piece} is already in the collection!`);
+        console.log(`${piece} is already in the obj!`);
       } else {
         obj[piece] = [composer, key];
-        console.log(
-          `${piece} by ${composer} in ${key} added to the collection!`
-        );
+        console.log(`${piece} by ${composer} in ${key} added to the obj!`);
       }
     }
     if (command == "Remove") {
@@ -31,9 +29,7 @@ function solve(input) {
         delete obj[piece];
         console.log(`Successfully removed ${piece}!`);
       } else {
-        console.log(
-          `Invalid operation! ${piece} does not exist in the collection.`
-        );
+        console.log(`Invalid operation! ${piece} does not exist in the obj.`);
       }
     }
     if (command == "ChangeKey") {
@@ -42,9 +38,7 @@ function solve(input) {
         obj[piece][1] = key;
         console.log(`Changed the key of ${piece} to ${key}!`);
       } else {
-        console.log(
-          `Invalid operation! ${piece} does not exist in the collection.`
-        );
+        console.log(`Invalid operation! ${piece} does not exist in the obj.`);
       }
     }
     if (command == "Stop") {
