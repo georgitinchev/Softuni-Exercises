@@ -5,6 +5,7 @@ function solve(input) {
   let arr = [];
   let total = 0;
   let daysSurvive = 0;
+  const constCal = 2000;
   let executed;
   while ((executed = regex.exec(input)) != null) {
     let item = executed.groups["item"];
@@ -14,7 +15,7 @@ function solve(input) {
 
     total += Number(calories);
   }
-  daysSurvive = Math.floor(total / 2000);
+  daysSurvive = Math.floor(total / constCal);
   console.log(`You have food to last you for: ${daysSurvive} days!`);
   arr.forEach((element) => {
     console.log(element);
