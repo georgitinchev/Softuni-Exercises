@@ -1,25 +1,30 @@
 function solve(input) {
-  let encrypted = input.shift().split("");
-  let currLine = input.shift();
-  while (currLine != "Decode") {
-    let [command, par1, par2] = currLine.split("|");
+  let message = input.shift();
+  for (let line of input) {
+    line = line.split("|");
+    let command = line[0];
     if (command == "Move") {
-      for (let i = 0; i < par1; i++) {
-        encrypted.push(encrypted.shift());
-      }
-      encrypted.join("");
-    } else if (command == "Insert") {
-      encrypted.splice(par1, 0, par2);
-    } else if (command == "ChangeAll") {
-      encrypted = encrypted.join("");
-      let regX = new RegExp(par1, "g");
-      encrypted = encrypted.replace(regX, par2);
-      encrypted = encrypted.split("");
+      let n = +line[1];
+      let substr1 = message.slice(0, n);
+      let substr2 = message.slice(n);
+      message = substr2 + substr1;
     }
-    currLine = input.shift();
+    if (command == "Insert") {
+      let index = +line[1];
+      let insertValue = line[2];
+      let substr1 = message.slice(0, index);
+      let substr2 = message.slice(index);
+      message = substr1 + insertValue + substr2;
+    }
+    if (command == "ChangeAll") {
+      let substr = line[1];
+      let replacement = line[2];
+      message = message.split(substr).join(replacement);
+    }
+    if (command == "Decode") {
+      console.log(`The decrypted message is: ${message}`);
+    }
   }
-  console.log(`The decrypted message is: ${encrypted.join("")}`);
 }
 // solve(["owyouh", "Move|2", "Move|3", "Insert|3|are", "Insert|9|?", "Decode"]);
-solve(["owyouh", "Move|2", "Move|3", "Insert|3|are", "Insert|9|?", "Decode"]);
 solve(["zzHe", "ChangeAll|z|l", "Insert|2|o", "Move|3", "Decode"]);
