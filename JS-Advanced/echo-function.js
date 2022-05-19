@@ -1,5 +1,6 @@
 function echo(input) {
-  console.log(input.length);
+  let len = input.length;
+  console.log(len);
   console.log(input);
 }
 
