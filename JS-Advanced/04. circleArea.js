@@ -8,4 +8,4 @@ function solve(input) {
     );
   }
 }
-solve(0);
+solve(3);
