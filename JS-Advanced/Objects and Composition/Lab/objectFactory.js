@@ -29,25 +29,14 @@ const orders = [
 ];
 
 function factory(lib, list) {
-  const result = [];
-  for (let order of list) {
-    const object = {};
-    const template = order.template;
-
-    for (let prop in template) {
-      object[prop] = template[prop];
-    }
-
-    const parts = order.parts;
-
-    for (let part of parts) {
-      object[part] = lib[part];
-    }
-
-    result.push(object);
-  }
-  return result;
+  return list.map((order) =>
+    Object.assign(
+      {},
+      order.template,
+      Object.fromEntries(order.parts.map((p) => [p, lib[p]]))
+    )
+  );
 }
 const products = factory(library, orders);
 console.log(products);
-products[3].play("Rick Astley", "Never Gonna Give You Up");
+console.log(products[3].play("Rick Astley", "Never Gonna Give You Up"));
