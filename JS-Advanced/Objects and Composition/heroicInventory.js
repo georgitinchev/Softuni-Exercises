@@ -17,6 +17,7 @@ function heroic(input) {
       let obj = {
         name: heroName,
         level: heroLevel,
+        items: [],
       };
       arr.push(obj);
     }
