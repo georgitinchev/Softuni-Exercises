@@ -24,7 +24,21 @@ function solve(input) {
     return 0;
   });
   for (let entry of entries) {
-    console.log(entry[1][1]);
+    console.log(entry[0]);
+    entry[1].sort(function (a, b) {
+      a = a[0];
+      b = b[0];
+      if (a > b) {
+        return 1;
+      }
+      if (b > a) {
+        return -1;
+      }
+      return 0;
+    });
+    for (let i = 0; i < entry[1].length; i++) {
+      console.log(`  ${entry[1][i][0]}: ${entry[1][i][1]}`);
+    }
   }
 }
 solve([
