@@ -1,32 +1,24 @@
-function solve(input) {
-  let arr = [];
-  for (let line of input) {
-    line = line.split(" | ");
-    line[0] = line[0].replace("| ", "");
-    line[2] = line[2].replace(" |", "");
-    line[1] = Number(line[1]).toFixed(2);
-    line[2] = Number(line[2]).toFixed(2);
-    let [town, lat, lon] = line;
-    if (lat == "NaN" || lon == "NaN") {
-      continue;
-    } else {
-      lat = Number(lat);
-      lon = Number(lon);
-      if (lat % 10 == 0) {
-        lat = lat.toFixed(1);
-      }
-      if (lon % 10 == 0) {
-        lon = lon.toFixed(1);
-      }
-      let obj = {
-        Town: town,
-        Latitude: lat,
-        Longitude: lon,
-      };
-      arr.push(obj);
+function solve(arr) {
+  let result = [];
+  class Town {
+    constructor(town, latitude, longitude) {
+      this.Town = town;
+      this.Latitude = Number(latitude);
+      this.Longitude = Number(longitude);
     }
   }
-  console.log(JSON.stringify(arr));
+  for (let index = 1; index < arr.length; index++) {
+    let array = arr[index]
+      .split("|")
+      .map((t) => t.trim())
+      .filter((x) => x.length != 0);
+    let townName = array[0];
+    let latitude = Number(array[1]).toFixed(2);
+    let longitude = Number(array[2]).toFixed(2);
+    let town = new Town(townName, latitude, longitude);
+    result.push(town);
+  }
+  return JSON.stringify(result);
 }
 solve([
   "| Town | Latitude | Longitude |",
