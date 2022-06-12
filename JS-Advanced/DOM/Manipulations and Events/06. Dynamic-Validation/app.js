@@ -1,3 +1,4 @@
 function validate() {
-    console.log('TODO:...');
+  let input = document.getElementById("email");
+  console.log(input.value);
 }
