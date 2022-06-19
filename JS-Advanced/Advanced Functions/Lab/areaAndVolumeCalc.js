@@ -9,12 +9,6 @@ function areaVol(areaIn, volIn, input) {
   }));
 }
 
-(areaIn, volIn, input) =>
-  JSON.parse(input).map((cube) => ({
-    area: areaIn.call(cube),
-    volume: volIn.call(cube),
-  }));
-
 areaVol(
   area,
   vol,

@@ -21,3 +21,11 @@ function createProcessor() {
     print,
   };
 }
+
+const proc = createProcessor();
+
+proc.append("Hello");
+proc.append("again");
+proc.removeStart(3);
+proc.removeEnd(4);
+proc.print();
