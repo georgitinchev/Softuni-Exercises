@@ -8,7 +8,13 @@ function areaVol(areaIn, volIn, input) {
     volume: volIn.call(cube),
   }));
 }
-
+function area() {
+  return Math.abs(this.x * this.y);
+}
+function vol() {
+  return Math.abs(this.x * this.y * this.z);
+}
+7;
 areaVol(
   area,
   vol,
@@ -39,10 +45,3 @@ areaVol(
     
     ]`
 );
-function area() {
-  return Math.abs(this.x * this.y);
-}
-
-function vol() {
-  return Math.abs(this.x * this.y * this.z);
-}
