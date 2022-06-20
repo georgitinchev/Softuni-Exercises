@@ -1,7 +1,8 @@
 function solve(input) {
-  const data = {};
+  const data = {}; // create the data obj
 
   const instr = {
+    // create the closure
     create: (n, inherits, n2) =>
       (data[n] = inherits ? Object.create(data[n2]) : {}),
     set: (n, k, v) => (data[n][k] = v),
