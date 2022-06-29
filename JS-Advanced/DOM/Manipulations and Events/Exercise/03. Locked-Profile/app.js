@@ -1,4 +1,4 @@
-function lockedProfile() {
+function solve() {
   const toggle = (btn, content) => {
     if (btn.innerHTML === "Show more") {
       btn.innerHTML = "Hide it";
