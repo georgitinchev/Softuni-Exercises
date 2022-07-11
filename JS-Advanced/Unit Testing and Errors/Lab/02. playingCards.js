@@ -13,22 +13,25 @@ function cardFactory(f, s) {
     Q: "Q",
     K: "K",
     A: "A",
-  };
-  const suits = { S: "\u2660", H: "\u2665", D: "\u2666", C: "\u2663" };
+  }; // create object that contains all the elements of the cards in its own object
+  const suits = { S: "\u2660", H: "\u2665", D: "\u2666", C: "\u2663" }; // associate every key with the respectful image
   const setter = (c, e) => {
+    // if index of e is not contained within c throw error
     if (!c[e]) throw new Error();
     return c[e];
   };
-  let [face, suit] = [setter(faces, f), setter(suits, s)];
+  let [face, suit] = [setter(faces, f), setter(suits, s)]; // face and suit are equal to setter return value
 
-  const card = { face, suit, toString: () => `${face}${suit}` };
+  const card = { face, suit, toString: () => `${face}${suit}` }; // create the variable for a card
 
   Object.defineProperties(card, {
+    // defineProperties directly defines the properties within creating a new object
     face: {
       get() {
+        // get
         return face;
       },
-      set: (f) => setter(faces, f),
+      set: (f) => setter(faces, f), //
     },
     suit: {
       get() {
