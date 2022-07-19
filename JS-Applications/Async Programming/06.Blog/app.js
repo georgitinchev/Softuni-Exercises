@@ -30,8 +30,8 @@ function attachEvents() {
     fetch(`http://localhost:3030/jsonstore/blog/comments`)
       .then((response) => response.json())
       .then((data) => {
-        postBody.innerHTML = "";
-        postTitleh1.innerHTML = "";
+        postBody.textContent = "";
+        postTitleh1.textContent = "";
         postComments.innerHTML = "";
         fetch(`http://localhost:3030/jsonstore/blog/posts/${id}`)
           .then((response) => response.json())
