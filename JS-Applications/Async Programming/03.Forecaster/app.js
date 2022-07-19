@@ -51,7 +51,7 @@ function attachEvents() {
                 </span>`;
                 currentDiv.appendChild(divElementCurrent);
               })
-              .catch((error) => (divDisplay.textContent = "Error"));
+              .catch((error) => console.log(error));
             fetch(
               `http://localhost:3030/jsonstore/forecaster/upcoming/${e.code}`
             )
@@ -81,7 +81,7 @@ function attachEvents() {
                 });
                 upcomingDiv.appendChild(divElementUpcoming);
               })
-              .catch((error) => (divDisplay.textContent = "Error"));
+              .catch((error) => console.log(error));
           }
         });
       });
