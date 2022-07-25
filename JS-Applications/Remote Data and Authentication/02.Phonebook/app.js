@@ -43,6 +43,9 @@ function attachEvents() {
         person: html.personInput.value,
         phone: html.phoneInput.value,
       }),
+    }).then((data) => {
+      html.personInput.value = "";
+      html.phoneInput.value = "";
     });
   });
 }
