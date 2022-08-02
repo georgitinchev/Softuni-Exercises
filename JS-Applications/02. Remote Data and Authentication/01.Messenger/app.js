@@ -12,6 +12,9 @@ function attachEvents() {
   };
   html.submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    if (html.authorInput.value == "" || html.messageInput.value == "") {
+      return;
+    }
     fetch(html.url1, {
       method: "POST",
       body: JSON.stringify({
